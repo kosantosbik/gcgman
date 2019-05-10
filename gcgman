@@ -1,0 +1,78 @@
+#!/usr/bin/env python3
+import datetime
+import os
+import argparse
+
+OFFSET_VALUE = 42
+LETTERS = {
+    'A': [7,8,9,10,11,12,13,14,17,21,24,28,29,30,31,32,33,34],
+    'H': [7,8,9,10,11,12,13,17,24,28,29,30,31,32,33,34],
+    'M': [0,1,2,3,4,5,6,8,16,22,28,29,30,31,32,33,34],
+    'E': [7,8,9,10,11,12,13,14,17,20,21,24,27,28,31,34],
+    'T': [0,7,14,15,16,17,18,19,20,21,28],
+    'K': [0]
+}
+
+def get_weekday(dtime):
+    weekday = dtime.weekday()
+    if weekday == 6:
+        return 0
+    else:
+        return weekday+1
+
+def get_start_date(year):
+    if year:
+        year_start = datetime.datetime(year=year, month=1, day=1)
+        weekday = get_weekday(year_start)
+        start_date = year_start - datetime.timedelta(days=weekday)
+    else:
+        now = datetime.datetime.now()
+        week_start = now - datetime.timedelta(days=get_weekday(now))
+        start_date = week_start - datetime.timedelta(days=52*7)
+
+    return start_date
+
+def get_word_offsets(word):
+    global OFFSET_VALUE
+    global LETTERS
+    commit_offsets = []
+    offset = 0
+
+    word = word.upper()
+    for letter in word:
+        letter_vals = LETTERS[letter]
+        for pixel in letter_vals:
+            commit_offsets.append(14+OFFSET_VALUE*offset+pixel)
+
+        offset += 1
+
+    return commit_offsets
+
+def create_commit(timestamp, count):
+    for i in range(count):
+        command = 'git commit --date ' + timestamp + ' --allow-empty --allow-empty-message -m "" > /dev/null 2>&1'
+        os.system(command)
+        print(".", end='')
+
+def main(word, count, year):
+    start_date = get_start_date(year)
+    commit_offsets = get_word_offsets(word)
+    print("Generating commits...")
+
+    for offset in commit_offsets:
+        commit_date = start_date + datetime.timedelta(days=offset)
+        commit_timestamp = str(int(commit_date.timestamp()))
+        create_commit(commit_timestamp, count)
+
+    print("\nGenerated %s commits." % len(commit_offsets))
+    os.system('git push origin master')
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(prog='gcgman',
+                                     description='Github contribution graph manipulator. Writes down any word has less then 8 character long in the contribution graph.')
+    parser.add_argument('word', help="Word you want to write on the graph.(Maximum lenght of 8)", type=str)
+    parser.add_argument('--count', help="Number of commits per day", type=int, default=1)
+    parser.add_argument('--year', help="Use a year as a start date", type=int)
+    args = parser.parse_args()
+    main(args.word, args.count, args.year)
