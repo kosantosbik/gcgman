@@ -88,7 +88,7 @@ def main(word, count, year):
         commit_timestamp = str(int(commit_date.timestamp()))
         create_commit(commit_timestamp, count)
 
-    print("\nGenerated %s commits." % len(commit_offsets))
+    print("\nGenerated %s commits." % count * len(commit_offsets))
     os.system('git push origin master')
 
 
