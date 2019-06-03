@@ -2,6 +2,7 @@
 import datetime
 import os
 import argparse
+from time import sleep
 
 OFFSET_VALUE = 42
 LETTERS = {
@@ -76,9 +77,10 @@ def create_commit(timestamp, count):
     for i in range(count):
         command = 'git commit --date ' + timestamp + ' --allow-empty --allow-empty-message -m "" > /dev/null 2>&1'
         os.system(command)
-        print(".", end='')
+        print(".", end='', flush=True)
+        sleep(0.008)
 
-def main(word, count, year):
+def gcgman(word, count, year):
     start_date = get_start_date(year)
     commit_offsets = get_word_offsets(word)
     print("Generating commits...")
