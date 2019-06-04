@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+name = "gcgman"
+
 import datetime
 import os
 import argparse
