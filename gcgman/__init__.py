@@ -80,7 +80,7 @@ def create_commit(timestamp, count):
         command = 'git commit --date ' + timestamp + ' --allow-empty --allow-empty-message -m "" > /dev/null 2>&1'
         os.system(command)
         print(".", end='', flush=True)
-        sleep(0.008)
+        sleep(0.001)
 
 def gcgman(word, count, year):
     start_date = get_start_date(year)
@@ -92,7 +92,7 @@ def gcgman(word, count, year):
         commit_timestamp = str(int(commit_date.timestamp()))
         create_commit(commit_timestamp, count)
 
-    print("\nGenerated %s commits." % count * len(commit_offsets))
+    print("\nGenerated {} commits.".format(count * len(commit_offsets)))
     os.system('git push origin master')
 
 
@@ -103,4 +103,4 @@ if __name__ == "__main__":
     parser.add_argument('--count', help="Number of commits per day", type=int, default=1)
     parser.add_argument('--year', help="Use a year as a start date", type=int)
     args = parser.parse_args()
-    main(args.word, args.count, args.year)
+    gcgman(args.word, args.count, args.year)
