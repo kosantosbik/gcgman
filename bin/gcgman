@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import argparse
+
 from gcgman import gcgman
 
 parser = argparse.ArgumentParser(prog='gcgman',

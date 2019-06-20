@@ -3,7 +3,6 @@ name = "gcgman"
 
 import datetime
 import os
-import argparse
 from time import sleep
 
 OFFSET_VALUE = 42
