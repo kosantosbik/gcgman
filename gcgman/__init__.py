@@ -93,14 +93,3 @@ def gcgman(word, count, year):
         create_commit(commit_timestamp, count)
 
     print("\nGenerated {} commits.".format(count * len(commit_offsets)))
-    os.system('git push origin master')
-
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(prog='gcgman',
-                                     description='Github contribution graph manipulator. Writes down any word has less then 8 character long in the contribution graph.')
-    parser.add_argument('word', help="Word you want to write on the graph.(Maximum lenght of 8)", type=str)
-    parser.add_argument('--count', help="Number of commits per day", type=int, default=1)
-    parser.add_argument('--year', help="Use a year as a start date", type=int)
-    args = parser.parse_args()
-    gcgman(args.word, args.count, args.year)
