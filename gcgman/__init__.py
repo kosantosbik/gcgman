@@ -4,6 +4,7 @@ name = "gcgman"
 import datetime
 import os
 from time import sleep
+from tqdm import tqdm
 
 OFFSET_VALUE = 42
 LETTERS = {
@@ -88,15 +89,13 @@ def create_commit(timestamp, count):
     for i in range(count):
         command = 'git commit --date ' + timestamp + ' --allow-empty --allow-empty-message -m "" > /dev/null 2>&1'
         os.system(command)
-        print(".", end='', flush=True)
-        sleep(0.001)
 
 def gcgman(word, count, year):
     start_date = get_start_date(year)
     commit_offsets = get_word_offsets(word)
     print("Generating commits...")
 
-    for offset in commit_offsets:
+    for offset in tqdm(commit_offsets, total=(len(commit_offsets) * count), ncols=5):
         commit_date = start_date + datetime.timedelta(days=offset)
         commit_timestamp = str(int(commit_date.timestamp()))
         create_commit(commit_timestamp, count)
