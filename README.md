@@ -1,6 +1,7 @@
 
 
 # Github Contribution Graph Manager (gcgman)
+![ScreenShot](gcgman-screen.png)
 A python script to write words into your github contribution graph. Chosen word has a length limit
 of 8.
 
