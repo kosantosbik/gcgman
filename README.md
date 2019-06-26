@@ -36,4 +36,4 @@ below.
 A = [7,8,9,10,11,12,13,14,17,21,24,28,29,30,31,32,33,34]
 
 
-![A Letter](a-letter.png)
+![A Letter](https://raw.githubusercontent.com/kosantosbik/gcgman/master/a-letter.png)
