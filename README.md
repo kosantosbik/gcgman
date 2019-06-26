@@ -30,7 +30,10 @@ Days used in drawing the letter are included in the list. Example of the letter 
 below.
 
 ### Empty Tiles vs Letter A
+![Tile](tile-numbers.png) 
+
+
 A = [7,8,9,10,11,12,13,14,17,21,24,28,29,30,31,32,33,34]
 
 
-![Tile](tile-numbers.png) ![A Letter](a-letter.png)
+![A Letter](a-letter.png)
