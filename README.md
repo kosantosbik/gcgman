@@ -29,10 +29,6 @@ used if they are not necessary. gcgman treats each letter as a list of integers 
 Days used in drawing the letter are included in the list. Example of the letter 'A' can be seen
 below.
 
-### Empty Tiles
-![Tile](tile-numbers.png)
-
-### Letter A
+### Empty Tiles vs Letter A
 A = [7,8,9,10,11,12,13,14,17,21,24,28,29,30,31,32,33,34]
-
-![Letter A](letter-a.png)
+![Tile](tile-numbers.png) ![A Letter](a-letter.png)
