@@ -95,7 +95,7 @@ def gcgman(word, count, year):
     commit_offsets = get_word_offsets(word)
     print("Generating commits...")
 
-    for offset in tqdm(commit_offsets, total=(len(commit_offsets) * count), ncols=5):
+    for offset in tqdm(commit_offsets):
         commit_date = start_date + datetime.timedelta(days=offset)
         commit_timestamp = str(int(commit_date.timestamp()))
         create_commit(commit_timestamp, count)
