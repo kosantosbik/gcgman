@@ -1,7 +1,7 @@
 
 
 # Github Contribution Graph Manager (gcgman)
-![ScreenShot](gcgman-screen.png)
+![ScreenShot](https://raw.githubusercontent.com/kosantosbik/gcgman/master/gcgman-screen.png)
 A python script to write words into your github contribution graph. Chosen word has a length limit
 of 8.
 
@@ -30,7 +30,7 @@ Days used in drawing the letter are included in the list. Example of the letter 
 below.
 
 ### Empty Tiles vs Letter A
-![Tile](tile-numbers.png) 
+![Tile](https://raw.githubusercontent.com/kosantosbik/gcgman/master/tile-numbers.png)
 
 
 A = [7,8,9,10,11,12,13,14,17,21,24,28,29,30,31,32,33,34]
