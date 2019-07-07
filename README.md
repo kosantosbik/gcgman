@@ -14,6 +14,8 @@ A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, R, S, T, U, V, Y, Z, X, W, Q, sp
 ## Usage
 `gcgman WORD [OPTION...]`
 
+- Make sure to run it in a git directory.
+- To delete changes, delete the repository commits are in. So DO NOT USE IN ANOTHER PROJECT'S REPOSITORY.
 ## Options
 
 ``` shell
