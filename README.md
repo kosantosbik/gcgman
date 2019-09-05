@@ -9,7 +9,7 @@ Currently supported characters :
 A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, R, S, T, U, V, Y, Z, X, W, Q, space, 0-9
 
 ## Installation
-`pip3 install gcgman`
+`pip install gcgman`
 
 ## Usage
 `gcgman WORD [OPTION...]`
