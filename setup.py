@@ -14,6 +14,9 @@ setuptools.setup(
     url="https://github.com/kosantosbik/gcgman",
     scripts=['bin/gcgman'],
     packages=setuptools.find_packages(),
+    install_requires=[
+        'tqdm',
+    ],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
