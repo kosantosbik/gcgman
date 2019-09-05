@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="gcgman",
-    version="1.3",
+    version="1.4",
     author="N.Ahmet BASTUG",
     author_email="bastugn@itu.edu.tr",
     description="A package to write any letter you want in the github graph",
